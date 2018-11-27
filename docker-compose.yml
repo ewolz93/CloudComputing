@@ -1,0 +1,20 @@
+version: '3'
+services:
+  server:
+    build: ./server
+    image: ga92jig/microservice:server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - hello-world-service
+      - product-descp-service
+      - product-price-service
+  hello-world-service:
+    build: ./hello-world-service
+    image: ga92jig/microservice:hello
+  product-descp-service:
+    build: ./product-descp-service
+    image: ga92jig/microservice:productdescp
+  product-price-service:
+    build: ./product-price-service
+    image: ga92jig/microservice:productprice
